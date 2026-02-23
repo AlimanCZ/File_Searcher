@@ -22,15 +22,18 @@ podle_nazvu = hledani()
 start_cesta = "C:\\"
 nalezeno = hledani_v_podslozkach(start_cesta, podle_nazvu)
 
-# výpis bud s uspěsným nalezem nebo negatvním pří více shodných nálezech výpis očíslovaného seznamu
+# výpis bud s uspěsným nalezem nebo negatvním pří více shodných nálezech výpis očíslovaného seznamu a ochrana proti padu programu
 if nalezeno:
     for index, hodnota in enumerate(nalezeno,1):
         print(index,hodnota)
+    try:
+       volba = input("vyber číslo:")
+       index = int(volba) - 1
+       os.startfile(nalezeno[index])
+    except(IndexError, ValueError):
+       print("neplatná volba")
 
-    volba = input("vyber číslo:")
-    index = int(volba) - 1
-
-    os.startfile(nalezeno[index])
-    print("Soubor nebo složka byla nalezena")
+    else:
+       print("Soubor nebo složka byla nalezena")
 else:
     print("Soubor ani složka nebyly nalezeny")
