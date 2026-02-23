@@ -7,7 +7,7 @@ def hledani():
 # funkce pro ověření
 def overeni(cesta):
     return os.path.exists(cesta)
-
+#hledaí podle názvu  v podsložkách + vytvoření seznamu
 def hledani_v_podslozkach(start_cesta, hledany_nazev):
 
     seznam = []
@@ -22,7 +22,7 @@ podle_nazvu = hledani()
 start_cesta = "C:\\"
 nalezeno = hledani_v_podslozkach(start_cesta, podle_nazvu)
 
-# výpis bud s uspěsným nalezem nebo negatvním
+# výpis bud s uspěsným nalezem nebo negatvním pří více shodných nálezech výpis očíslovaného seznamu
 if nalezeno:
     for index, hodnota in enumerate(nalezeno,1):
         print(index,hodnota)
